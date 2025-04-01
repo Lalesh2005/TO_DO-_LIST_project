@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIST</title>
+
+    <style>
+        body{
+            padding: 0%;
+            margin: 0%;
+            width: 100%;
+            height: 100%;
+
+        }
+        .Search_container{
+            display:flex;
+            margin-top: 50px;
+            gap: 30px;
+            justify-content: center;
+
+        }
+        button{
+            background-color: green;
+            height: 25px;
+            width: auto;
+        }
+        #Enter_item{
+            height: 20px;
+            width: 250px;
+            border-color: gray;
+            border-width: 2px;
+            border: solid 1px;
+        }
+
+        .item{
+            margin-top: 30px;
+            
+            
+            gap: 40px;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+<body>
+    
+    
+        <div class="Search_container">
+            <input type="text" placeholder="Enter item" id="Enter_item">
+            <button onclick="add()">Add item</button>
+
+        </div>
+        <div class="item">
+
+        </div>
+
+
+    <script>
+        let Enter_items=document.getElementById("Enter_item");
+        let items=document.querySelector(".item");
+
+        function add()
+        {
+            if(Enter_item.value=="")
+            {
+                alert("Enter item");
+            }
+            else
+            {
+                let new_item=document.createElement("li");
+                let button_delete=document.createElement("button");
+                new_item.innerHTML=`${Enter_items.value}`;
+                items.appendChild(new_item);
+                new_item.appendChild(button_delete);
+                button_delete.textContent="Delete";
+                button_delete.style.backgroundColor="red";
+                new_item.style.margin="30px";
+                Enter_items.value="";
+                button_delete.addEventListener("click",function(){
+                    new_item.remove();
+                    button_delete.remove();
+                });
+            }
+        }
+
+    </script>
+
+</body>
+</html>
